@@ -1,7 +1,8 @@
 def outside():
     m="out"
     def inside():
-        global m
+        #한 단계 위만 건드린다.
+        nonlocal m
         m="in"
         print(m)
     inside()
