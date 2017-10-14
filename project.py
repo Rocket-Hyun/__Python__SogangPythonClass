@@ -7,7 +7,7 @@ from output import Output
 from process import Process
 
 
-# 최종 함수
+# 최종 함수이다
 def scriptSliderProgram(rawVoice, textFile):
     input = Input()
     output = Output()
