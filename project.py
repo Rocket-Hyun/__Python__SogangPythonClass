@@ -7,7 +7,7 @@ from output import Output
 from process import Process
 
 
-# 최종 함수이다
+# 최종 메인 함수 입니다.
 def scriptSliderProgram(rawVoice, textFile):
     input = Input()
     output = Output()
@@ -18,4 +18,4 @@ def scriptSliderProgram(rawVoice, textFile):
     matchRate = output.speechScriptComparer(userVoiceText, scriptText)
     process.scriptSlider(matchRate)
 
-scriptSliderProgram(1,2)
+scriptSliderProgram('raw Voice','text File')
