@@ -1,0 +1,7 @@
+textFile = open("KakaoTalkChats.txt", "r", encoding="utf-8")
+print(textFile)
+text = textFile.read()
+#print(text.encode('utf-8'))
+print(text)
+text = text.split("\n")
+#print(text[4])
