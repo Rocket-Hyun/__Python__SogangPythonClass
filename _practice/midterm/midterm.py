@@ -7,12 +7,13 @@ from textreader.filereader import TextReader
 #         textFile = open(fileName, "r", encoding="utf8")
 #         self.text = textFile.read()
 
-
 #쓸만한 함수
 #문자열.replace("&nbsp;", "")
-#배열.sort()
-#배열.append()
-#del 배열[index]
+#리스트.sort()
+#리스트.append()
+#del 리스트[index]
+#리스트.remove('값')
+#리스트.extend(리스트)
 
 
 firstFile = TextReader("howtostartastartup.txt")
