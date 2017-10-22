@@ -16,7 +16,14 @@ from textreader.filereader import TextReader
 #리스트.extend(리스트)
 
 
-firstFile = TextReader("howtostartastartup.txt")
+firstFile = TextReader("KakaoTalkChats.txt")
 print(firstFile.text[0:50])
 secondFile = TextReader("KakaoTalkChats.txt")
 print(secondFile.text[0:50])
+
+# CommonWords = []
+# for word in firstFile.text.split(" "):
+#     if word in secondFile.text.split(" "):
+#         CommonWords.append(word)
+#
+# print(CommonWords[0:10])
