@@ -17,7 +17,7 @@ from textreader.filereader import TextReader
 
 
 firstFile = TextReader("KakaoTalkChats.txt")
-print(firstFile.text[0:50])
+print(firstFile.text.split(" ")[0])
 secondFile = TextReader("KakaoTalkChats.txt")
 print(secondFile.text[0:50])
 
