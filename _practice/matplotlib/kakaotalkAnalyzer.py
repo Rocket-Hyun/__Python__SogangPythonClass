@@ -1,8 +1,6 @@
 import datetime
 from datetime import timedelta, date
 import matplotlib.pyplot as plt
-import numpy as np
-import sys
 
 
 class KakaoAnalyzer:
@@ -47,7 +45,7 @@ class KakaoAnalyzer:
 
 
 def daterange(start_date, end_date):
-    for n in range(int ((end_date - start_date).days)):
+    for n in range(int((end_date - start_date).days)):
         yield start_date + timedelta(n)
 
 
@@ -56,9 +54,11 @@ myTalk = KakaoAnalyzer("KakaoTalkChats.txt")
 talkList = myTalk.doAll("회원님")
 
 startdate = talkList[0].split(",", 2)[0].replace("년 ", "-").replace("월 ", "-").replace("일", "").split(" ")[0].split("-")
-lastdate = talkList[len(talkList)-1].split(",", 2)[0].replace("년 ", "-").replace("월 ", "-").replace("일", "").split(" ")[0].split("-")
+lastdate = \
+talkList[len(talkList) - 1].split(",", 2)[0].replace("년 ", "-").replace("월 ", "-").replace("일", "").split(" ")[0].split(
+    "-")
 start_date = date(int(startdate[0]), int(startdate[1]), int(startdate[2]))
-end_date = date(int(lastdate[0]), int(lastdate[1]), int(lastdate[2])+1)
+end_date = date(int(lastdate[0]), int(lastdate[1]), int(lastdate[2]) + 1)
 for single_date in daterange(start_date, end_date):
     wordFrequency[str(single_date)] = 0
 
@@ -79,15 +79,13 @@ for text in talkList:
     usableTime = datetime.datetime.strptime(usableTime, "%Y-%m-%d").strftime('%Y-%m-%d')
     wordFrequency[usableTime] = wordFrequency.get(usableTime, 0) + len(text.split(": ", 2)[1])
 
-#print(wordFrequency)
-
 dateList = []
 wordcountList = []
-for key,value in wordFrequency.items():
+for key, value in wordFrequency.items():
     dateList.append(key)
     wordcountList.append(value)
 
-plt.figure(figsize=(30,10))
+plt.figure(figsize=(30, 10))
 plt.plot(dateList, wordcountList)
 plt.xlabel('Date')
 plt.ylabel('Words Count')
