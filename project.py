@@ -8,14 +8,22 @@ from process import Process
 
 
 # 최종 메인 함수 입니다.
-def scriptSliderProgram(rawVoice, textFile):
+def scriptSliderProgram():
     input = Input()
     output = Output()
     process = Process()
-    recognizedVoice = input.voiceRecognizer(rawVoice)
-    userVoiceText = output.voiceApiCaller(recognizedVoice)
-    scriptText = input.speechScriptInputter(textFile)
-    matchRate = output.speechScriptComparer(userVoiceText, scriptText)
-    process.scriptSlider(matchRate)
 
-scriptSliderProgram('raw Voice','text File')
+    scriptText = input.speechScriptInputter()
+    for sentence in scriptText:
+        while True:
+            print(sentence)
+            # 음성을 인식해 파일로 변환하는 함수
+            input.voiceRecognizer()
+            userVoiceText = output.voiceApiCaller()
+            print(userVoiceText)
+            matchRate = output.speechScriptComparer(userVoiceText, sentence)
+            print(matchRate)
+            if matchRate > 0.6:
+                break
+
+scriptSliderProgram()
